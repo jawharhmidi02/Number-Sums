@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Sums</title>
+    <link rel="icon" href="icon.png">
+    <style>
+        .logo{
+            font-size: 70px;
+            height: 300px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .number,.sums{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            cursor:default;
+        }
+        .numbertext{
+            transform: translateX(-30px);
+            margin-top: 140px;
+        }
+        .sumstext{
+            transform: translateX(60px) translateY(-20px);
+        }
+        .play{
+            display: flex;
+            justify-content: center;
+            margin-top: 150px;
+        }
+        .playbutton{
+            width: 200px;
+            height: 80px;
+            font-size: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color:rgb(81, 66, 66);
+            border-radius: 15px;
+            border: 0;
+            background-color: #94d2e3;
+            cursor: pointer;
+            transition: all 0.5s;    
+        }
+        .playbutton:hover{
+            background-color: #3C6997;
+            color:black;
+            transform: translateX(-5px) translateY(-5px);
+        }
+        .playbutton:active{
+            background-color: #094074;
+            color: white;
+        }
+        .slide-in{
+            opacity: 0;
+            transform: translateY(-100px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .show{
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .logo.slide-in.show, .play.slide-in.show{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body onload="load()">
+    <div class="logo slide-in">
+        <div class="number"><span class="numbertext">Number</span></div> 
+        <div class="sums"><span class="sumstext">Sums</span></div>
+    </div>
+    <div class="play slide-in" >
+        <input type="button" class="playbutton" value="Play" onclick="go()">
+    </div>
+    <script>
+        function load() {
+            document.querySelector(".logo.slide-in").classList.add("show");
+            document.querySelector(".play.slide-in").classList.add("show");
+        };
+        function go(){
+            document.querySelector(".logo.slide-in").classList.remove("show");
+            document.querySelector(".play.slide-in").classList.remove("show");
+            setTimeout(function(){
+                window.location.href = "game.html";
+            },1200 )
+        }
+    </script>
+</body>
+</html>
